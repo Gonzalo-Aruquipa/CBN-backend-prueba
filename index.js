@@ -1,6 +1,7 @@
 const express = require("express");
 const routes = require("./routes/index");
 const bodyParser = require("body-parser");
+const morgan = require("morgan")
 
 const db = require("./db")
 
@@ -13,7 +14,9 @@ try {
 }
 
 
+
 const app = express();
+app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use("/", routes);
 
